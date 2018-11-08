@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>TCP-IP</title>
+      <link href="/2018/11/08/TCP-IP/"/>
+      <url>/2018/11/08/TCP-IP/</url>
+      
+        <content type="html"><![CDATA[<h1 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h1><h2 id="TCP-IP简介"><a href="#TCP-IP简介" class="headerlink" title="TCP/IP简介"></a>TCP/IP简介</h2><p>从字面意义上讲，有人可能会认为 TCP/IP 是指 TCP 和 IP 两种协议。实际生活当中有时也确实就是指这两种协议。然而在很多情况下，它只是利用 IP 进行通信时所必须用到的协议群的统称。具体来说，IP 或 ICMP（网络协议）、TCP 或 UDP（传输协议）、TELNET 或 FTP或 HTTP（应用协议） 等都属于 TCP/IP 协议。他们与 TCP 或 IP 的关系紧密，是互联网必不可少的组成部分。TCP/IP 一词泛指这些协议，因此，有时也称 TCP/IP 为网际协议群。<br>互联网进行通信时，需要相应的网络协议，TCP/IP 原本就是为使用互联网而开发制定的协议族。因此，互联网的协议就是 TCP/IP，TCP/IP 就是互联网的协议。</p><p>这里从字面上讲TCP和IP，TCP协议，即传输控制协议（英语：Transmission Control Protocol），是一种面向连接的、可靠的、基于字节流的传输层通信协议；IP协议（英语：Internet Protocol），网络之间互连的协议，为计算机网络相互连接进行通信而设计的协议。在因特网中，它是能使连接到网上的所有计算机网络实现相互通信的一套规则，规定了计算机在因特网上进行通信时应当遵守的规则。</p><p>TCP层位于传输层，IP层位于网络层中，这两层都是负责计算机之间的通信，但不同的是，网络层负责的是主机与主机的通信，而传输层负责的是主机上的进程与进程的通信。网络层协议只把报文传递到目的计算机。然而，报文仍然需要递交给正确的进程，传输层协议即负责进程到进程的通信。</p><p>操作系统都支持多用户和多程序运行，所以对通信来说，我们必须定义本地主机、本地进程、远程主机以及远程进程。在TCP协议簇中的传输层协议需要IP地址和端口号，一个IP地址和一个端口号结合起来称为套接字地址。<strong>套接字地址唯一定义了一个进程</strong>。    </p><p>在TCP/IP协议簇中，端口号是在0到65535之间的16位整数。<br>由于客户进程的生命周期通常很短，所以一般使用<strong>临时端口号</strong>，推荐值为大于1023。服务器进程必须使用一个<strong>熟知端口号</strong>。<br>ICANN将端口分为3类：<br>熟知端口：端口号范围：0~1023，由ICANN分配和控制；<br>注册端口：端口号范围：1024~49151，可在ICANN注册以防重复；<br>动态端口：端口号范围：49152~65535，即不受控制也不需要注册，可以由任何进程使用，是临时或私有端口号。</p><h2 id="TCP的三次握手与四次挥手"><a href="#TCP的三次握手与四次挥手" class="headerlink" title="TCP的三次握手与四次挥手"></a>TCP的三次握手与四次挥手</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>字符串填坑</title>
+      <link href="/2018/11/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A1%AB%E5%9D%91/"/>
+      <url>/2018/11/05/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A1%AB%E5%9D%91/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
+      <title>RTMP协议</title>
+      <link href="/2018/11/05/RTMP%E5%8D%8F%E8%AE%AE/"/>
+      <url>/2018/11/05/RTMP%E5%8D%8F%E8%AE%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="RTMP简介"><a href="#RTMP简介" class="headerlink" title="RTMP简介"></a>RTMP简介</h2><p>RTMP协议是<code>Real Time Message Protocol</code>(实时信息传输协议)的缩写，它是由Adobe公司提出的一种基于TCP的应用层协议（默认端口1935），用来<em>解决多媒体数据传输流的多路复用（Multiplexing）和分包（packetizing）</em>的问题。</p><p>因为RTMP协议是基于TCP协议的，所以也要客户端和服务端通过“握手”来建立基于传输层链接之上的RTMP Connection链接，在Connection链接上会传输一些控制信息，如SetChunkSize，SetACKWindowSize。其中CreateStream命令会创建一个Stream链接，用于传输具体的音视频数据和控制这些信息传输的命令信息。RTMP协议传输时会对数据做自己的格式化，这种格式的消息我们称之为RTMP Message，而实际传输的时候为了更好地实现多路复用、分包和信息的公平性，发送端会把Message划分为带有Message ID的Chunk，每个Chunk可能是一个单独的Message，也可能是Message的一部分，在接受端会根据chunk中包含的data的长度，message id和message的长度把chunk还原成完整的Message，从而实现信息的收发。</p><p>RTMP URL格式如：rtmp://ip:[port]/appname/streamName</p><h2 id="RTMP握手"><a href="#RTMP握手" class="headerlink" title="RTMP握手"></a>RTMP握手</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 流媒体协议 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>IP地址</title>
+      <link href="/2018/11/04/IP%E5%9C%B0%E5%9D%80/"/>
+      <url>/2018/11/04/IP%E5%9C%B0%E5%9D%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="IP简介"><a href="#IP简介" class="headerlink" title="IP简介"></a>IP简介</h2><p>IP地址是IP协议提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p><p>IP地址被用来给Internet上的电脑一个编号。大家日常见到的情况是每台联网的PC上都需要有IP地址，才能正常通信。我们可以把个人电脑比作一台电话，那么“IP地址”就相当于“电话号码”。</p><p>常见的IP地址，分为IPv4与IPv6两大类。</p><h2 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h2><p>IPv4地址是一个32位的二进制数，通常被分割为4个“8位二进制数”（也就是4个字节）。IP地址通常用“点分十进制”表示成（a.b.c.d）的形式，其中，a,b,c,d都是0~255之间的十进制整数。例：点分十进IP地址（100.4.5.6），实际上是32位二进制数（01100100.00000100.00000101.00000110）。地址格式为：</p><ul><li>IP地址=网络地址＋主机地址 </li><li>IP地址=网络地址＋子网地址＋主机地址。</li></ul><p>将IPv4地址空间划分可划为A、B、C、D、E五类，其中A、B、C是基本类，D、E类作为多播和保留使用。</p><table><thead><tr><th style="text-align:center">种类</th><th style="text-align:center">地址范围</th><th style="text-align:center">网络数</th><th style="text-align:center">主机数</th></tr></thead><tbody><tr><td style="text-align:center">A</td><td style="text-align:center">1.0.0.0 ~126.0.0.0</td><td style="text-align:center">2^7-2=126</td><td style="text-align:center">2^24-2</td></tr><tr><td style="text-align:center">B</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center">C</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center">D</td><td style="text-align:center"></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center">E</td><td style="text-align:center"></td><td style="text-align:center"></td></tr></tbody></table><p>A类地址中，网络号全是0的地址是保留地址，代表网络中的所有主机；网络号全是127的地址也是保留地址，它与任意主机号组合当作本地环回地址（本地回环地址，不属于任何一个有类别地址类。它代表设备的本地虚拟接口，默认被看作是永远不会宕掉的接口。在windows操作系统中也有相似的定义，所以通常在安装网卡前就可以ping通这个本地回环地址。一般都会用来检查本地网络协议、基本数据接口等是否正常的。）</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/10/30/hello-world/"/>
+      <url>/2018/10/30/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
+      <title>C/C++面试</title>
+      <link href="/2018/10/24/C++%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95/"/>
+      <url>/2018/10/24/C++%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<ol><li>引用和指针的区别</li></ol><ol start="2"><li>汇编层次上解释引用</li></ol><ol start="3"><li>指针传递和引用传递</li></ol><ol start="4"><li>形参和实参的区别</li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 笔试面试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
